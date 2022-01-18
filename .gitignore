@@ -1,0 +1,14 @@
+/idea-module-files
+/.idea
+/log
+/temp
+/roles
+/data
+/bin/modules
+/bin/platform
+/bin/custom/**/gensrc
+/bin/custom/**/classes
+/bin/custom/**/.externalToolBuilders
+/bin/custom/**/.settings
+/bin/custom/**/lib
+*.jar
