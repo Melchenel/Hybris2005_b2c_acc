@@ -12,3 +12,4 @@
 /bin/custom/**/.settings
 /bin/custom/**/lib
 *.jar
+/config/licence/installedSaplicenses.properties

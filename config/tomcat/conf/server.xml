@@ -91,7 +91,7 @@
      --> 
 	${tomcat.connectors.ajp.plain}	
 
-    <Engine name="Catalina" defaultHost="localhost" startStopThreads="${tomcat.startStopThreads}">
+    <Engine name="Catalina" defaultHost="localhost" startStopThreads="0">
 
 			<Valve 	className="org.apache.catalina.valves.AccessLogValve"
              		directory="${HYBRIS_LOG_DIR}/tomcat"
@@ -104,7 +104,7 @@
       			appBase="webapps"
 		       	unpackWARs="false"
 		       	autoDeploy="false"
-		       	startStopThreads="${tomcat.startStopThreads}">
+		       	startStopThreads="0">
 		       	
 		        <Valve className="org.apache.catalina.valves.ErrorReportValve" 
 		               showReport="${tomcat.errorReport.showReport}" 
