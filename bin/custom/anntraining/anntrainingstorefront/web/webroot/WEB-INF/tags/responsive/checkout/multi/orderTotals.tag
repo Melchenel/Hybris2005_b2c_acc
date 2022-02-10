@@ -19,6 +19,7 @@
 			</ycommerce:testId>
 		</span>
 	</div>
+
 	<c:if test="${cartData.totalDiscounts.value > 0}">
 		<div class="subtotals__item--state-discount">
 			<spring:theme code="text.account.order.discount"/>

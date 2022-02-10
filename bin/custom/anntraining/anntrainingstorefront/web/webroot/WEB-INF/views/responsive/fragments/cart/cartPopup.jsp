@@ -69,6 +69,7 @@
 										</c:if>
 									</div>
 									<div class="price"><format:price priceData="${entry.basePrice}"/></div>
+									Weight ${entry.weight}
 								</li>
 							</c:forEach>
 						</ol>
@@ -81,6 +82,10 @@
 							<div class="key"><spring:theme code="popup.cart.total"/></div>
 							<div class="value"><format:price priceData="${cartData.totalPrice}"/></div>
 						</div>
+					<div class="mini-cart-totals">
+						<div class="key">Weight</div>
+						<div class="value"> ${cartData.weight}</div>
+					</div>
 						<a href="${fn:escapeXml(cartUrl)}" class="btn btn-primary btn-block mini-cart-checkout-button">
 							<spring:theme code="${miniCartProceed }" />
 						</a>

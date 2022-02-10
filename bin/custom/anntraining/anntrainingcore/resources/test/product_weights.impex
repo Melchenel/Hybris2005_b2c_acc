@@ -1,0 +1,9 @@
+
+$productCatalog=electronicsProductCatalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
+INSERT_UPDATE Product;code[unique=true];$catalogVersion;weight
+                     ;1209761;;1000
+                     ;784343;;2000
+                     ;1225694;;3400
+                     ;1382080;;6000

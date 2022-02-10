@@ -103,6 +103,45 @@
                 </attributes>
             </itemtype>
         </typegroup>
+        
+        <typegroup name="CartWeight">
+            <itemtype code="AbstractOrderEntry" autocreate="false" generate="false">
+                <attributes>
+                    <attribute qualifier="weight" type="java.lang.Double">
+                        <persistence type="property"/>
+                        <modifiers optional="true"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="Cart" autocreate="false" generate="false">
+                <attributes>
+                    <attribute qualifier="weight" type="java.lang.Double">
+                        <persistence type="property"/>
+                        <modifiers optional="true"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="Order" autocreate="false" generate="false">
+                <attributes>
+                    <attribute qualifier="weight" type="java.lang.Double">
+                        <persistence type="property"/>
+                        <modifiers optional="true"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+            <itemtype code="Product" autocreate="false" generate="false">
+                <attributes>
+                    <attribute qualifier="weight" type="java.lang.Double">
+                        <persistence type="property"/>
+                        <modifiers optional="true"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
+        </typegroup>
 
     </itemtypes>
 </items>

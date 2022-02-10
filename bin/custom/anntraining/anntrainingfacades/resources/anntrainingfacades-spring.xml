@@ -80,6 +80,20 @@
 		<property name="add" ref="apparelProductPopulator"/>
 	</bean>
 
+	<bean id="abstractOrderEntryWeightPopulator" class="de.hybris.anntraining.facades.populators.AbstractOrderEntryWeightPopulator"/>
+
+	<bean parent="modifyPopulatorList">
+		<property name="list" ref="orderEntryConverter"/>
+		<property name="add" ref="abstractOrderEntryWeightPopulator"/>
+	</bean>
+
+	<bean id="cartWeightPopulator" class="de.hybris.anntraining.facades.populators.CartWeightPopulator"/>
+
+	<bean parent="modifyPopulatorList">
+		<property name="list" ref="cartConverter"/>
+		<property name="add"  ref="cartWeightPopulator"/>
+	</bean>
+
 	<!-- accelerator Image Format Mappings -->
 	<alias name="acceleratorImageFormatMapping" alias="imageFormatMapping"/>
 	<bean id="acceleratorImageFormatMapping" parent="defaultImageFormatMapping">

@@ -3,6 +3,7 @@
  */
 package de.hybris.anntraining.storefront.controllers.misc;
 
+import de.hybris.anntraining.core.services.CalculationOrderWeightService;
 import de.hybris.platform.acceleratorfacades.product.data.ProductWrapperData;
 import de.hybris.platform.acceleratorstorefrontcommons.controllers.AbstractController;
 import de.hybris.platform.acceleratorstorefrontcommons.forms.AddToCartForm;
@@ -34,6 +35,7 @@ import javax.validation.Valid;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -68,6 +70,9 @@ public class AddToCartController extends AbstractController
 	@Resource(name = "groupCartModificationListPopulator")
 	private GroupCartModificationListPopulator groupCartModificationListPopulator;
 
+	@Autowired
+	private CalculationOrderWeightService calculationOrderWeightService;
+
 	@RequestMapping(value = "/cart/add", method = RequestMethod.POST, produces = "application/json")
 	public String addToCart(@RequestParam("productCodePost") final String code, final Model model,
 			@Valid final AddToCartForm form, final BindingResult bindingErrors)
@@ -89,6 +94,7 @@ public class AddToCartController extends AbstractController
 			try
 			{
 				final CartModificationData cartModification = cartFacade.addToCart(code, qty);
+
 				model.addAttribute(QUANTITY_ATTR, Long.valueOf(cartModification.getQuantityAdded()));
 				model.addAttribute("entry", cartModification.getEntry());
 				model.addAttribute("cartCode", cartModification.getCartCode());

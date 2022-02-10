@@ -538,4 +538,13 @@
 		<property name="itemCleanupHooks" ref="csTicketRetentionHooks"/>
 		<property name="ticketBusinessService" ref="ticketBusinessService"/>
 	</bean>
+
+	<alias name="defaultCalculationOrderWeightService" alias="calculationOrderWeightService"/>
+	<bean id="defaultCalculationOrderWeightService" class="de.hybris.anntraining.core.services.impl.DefaultCalculationOrderWeightService"/>
+
+	<alias name="annaDefaultCommerceCartService" alias="commerceCartService"/>
+	<bean id="annaDefaultCommerceCartService"
+		  class="de.hybris.anntraining.core.services.impl.AnnaDefaultCommerceCartService"
+		  parent="defaultCommerceCartService"/>
+
 </beans>
