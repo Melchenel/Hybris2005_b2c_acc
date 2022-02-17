@@ -1,0 +1,3 @@
+
+INSERT_UPDATE SearchRestriction;code[unique=true];name;query;principal(UID);restrictedType(code);active;generate
+                               ;Prosduct_DS_unavailable;Pros=duct_DS;{discontinuedStatus} = ( {{ select {pk} from {DiscontinuedStatus} where {code} = 'D4' }} )  ;anonymous;Product;true;true

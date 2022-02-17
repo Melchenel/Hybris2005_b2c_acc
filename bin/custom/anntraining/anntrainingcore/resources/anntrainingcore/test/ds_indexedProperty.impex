@@ -1,0 +1,8 @@
+UPDATE GenericItem[processor = de.hybris.platform.commerceservices.impex.impl.ConfigPropertyImportProcessor]; pk[unique = true]
+$solrIndexedType = electronicsProductType
+
+INSERT_UPDATE SolrIndexedProperty; solrIndexedType(identifier)[unique = true]; name[unique = true]; displayName[lang = en]; type(code); multiValue[default = true]; facet[default = true]; facetType(code); facetSort(code); priority; visible; categoryField[default = true]; fieldValueProvider              ; facetDisplayNameProvider;
+                                 ; $solrIndexedType                          ; discontinuedStatus ; Discontinued Status   ; string    ;                           ;                      ; MultiSelectOr  ; Alpha          ; 6000    ; true   ; false                        ; discontinuedStatusValueResolver ; discontinuedStatusDisplayNameProvider
+
+INSERT_UPDATE SolrSearchQueryProperty; indexedProperty(name, solrIndexedType(identifier))[unique = true] ; facet[default = true]; facetType(code); priority; facetDisplayNameProvider              ; facetTopValuesProvider; includeInResponse[default = true]; searchQueryTemplate(name, indexedType(identifier))[unique = true][default = DEFAULT:$solrIndexedType]
+                                     ; discontinuedStatus:$solrIndexedType ;                      ; MultiSelectOr  ; 1000    ; discontinuedStatusDisplayNameProvider ;                       ;                                  ;

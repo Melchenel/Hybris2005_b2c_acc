@@ -6,7 +6,9 @@
 
 	<bean class="de.hybris.platform.commercefacades.product.data.ProductData">
 		<property name="genders" type="java.util.List&lt;de.hybris.anntraining.facades.product.data.GenderData>"/>
+		<property name="discontinuedStatus" type="de.hybris.anntraining.core.enums.DiscontinuedStatus"/>
 	</bean>
+
 
 	<bean class="de.hybris.anntraining.facades.product.data.GenderData">
 		<property name="code" type="String"/>

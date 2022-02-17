@@ -120,6 +120,20 @@
 		</property>
 	</bean>
 
+	<bean id="discontinuesStatusPopulator" class="de.hybris.anntraining.facades.populators.DiscontinuesStatusProductPopulator">
+	</bean>
+
+	<bean parent="modifyPopulatorList">
+		<property name="list" ref="productConverter"/>
+		<property name="add" ref="discontinuesStatusPopulator"/>
+	</bean>
+
+	<alias name="searchResultDiscontinuedStatusPopulator" alias="commerceSearchResultProductPopulator"/>
+	<bean id="searchResultDiscontinuedStatusPopulator"
+		  class="de.hybris.anntraining.facades.storefinder.populators.SearchResultDiscontinuedStatusPopulator"
+		  parent="variantCommerceSearchResultProductPopulator">
+	</bean>
+
 	<bean id="customerEmailContext" class="de.hybris.anntraining.facades.process.email.context.CustomerEmailContext" parent="abstractEmailContext" scope="prototype" >
 		<property name="customerConverter" ref="customerConverter"/>
 	</bean>

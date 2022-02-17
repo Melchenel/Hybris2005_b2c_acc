@@ -1,0 +1,8 @@
+$solrIndexedType = electronicsProductType
+
+
+INSERT_UPDATE SolrIndexerQuery; solrIndexedType(identifier)[unique = true]; identifier[unique = true]    ; type(code); query                                                                                                                       ; user(uid) ;
+                              ; $solrIndexedType                          ; $solrIndexedType-fullQuery   ; full      ; "SELECT {PK} FROM {Product} where {discontinuedStatus} != ({{SELECT {PK} FROM {DiscontinuedStatus} WHERE {code} = 'D3'}}) " ; anonymous ;
+                              ; $solrIndexedType                          ; $solrIndexedType-updateQuery ; update    ; "SELECT {PK} FROM {Product} where {discontinuedStatus} != ({{SELECT {PK} FROM {DiscontinuedStatus} WHERE {code} = 'D3'}}) " ; anonymous ;
+                              ; $solrIndexedType                          ; $solrIndexedType-deleteQuery ; delete    ; "SELECT {PK} FROM {Product} where {discontinuedStatus} != ({{SELECT {PK} FROM {DiscontinuedStatus} WHERE {code} = 'D3'}}) " ; anonymous ;
+

@@ -27,7 +27,41 @@
 		<ycommerce:testId code="searchPage_productName_link_${product.code}">
 			<a class="product__list--name" href="${fn:escapeXml(productUrl)}">${ycommerce:sanitizeHTML(product.name)}</a>
 		</ycommerce:testId>
+		<spring:theme text="Product Availability Information: "/>
+		<c:choose>
 
+			<c:when test="${product.discontinuedStatus eq 'D0'}">
+							<span style="color: #0e6f1e">
+								<spring:theme text="Product is available for sale"/>
+							</span>
+			</c:when>
+
+			<c:when test="${product.discontinuedStatus eq 'D1'}">
+							<span style="color: yellow">
+								<spring:theme text="Sale remainders"/>
+							</span>
+			</c:when>
+
+			<c:when test="${product.discontinuedStatus eq 'D2'}">
+							<span style="color: orange">
+								<spring:theme text="Product is available for booking"/>
+							</span>
+			</c:when>
+
+			<c:when test="${product.discontinuedStatus eq 'D3'}">
+							<span style="color: red">
+								<spring:theme
+										text="This item has been discontinued and will be removed from the site soon"/>
+							</span>
+			</c:when>
+			<c:when test="${product.discontinuedStatus eq 'D4'}">
+							<span style="color: blue">
+								<spring:theme
+										text="This item has been discontinued and will be removed from the site soon"/>
+							</span>
+			</c:when>
+
+		</c:choose>
 		<div class="product__list--price-panel">
 			<c:if test="${not empty product.potentialPromotions}">
 				<div class="product__listing--promo">
@@ -40,6 +74,7 @@
 			<ycommerce:testId code="searchPage_price_label_${product.code}">
 				<div class="product__listing--price"><product:productListerItemPrice product="${product}"/></div>
 			</ycommerce:testId>
+
 		</div>
 
 		<c:if test="${not empty product.summary}">

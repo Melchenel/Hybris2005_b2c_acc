@@ -1,0 +1,2 @@
+UPDATE Product[batchmode = true]; itemtype(code)[unique = true]; discontinuedStatus(code);
+                                ; Product                      ; D0                      ;

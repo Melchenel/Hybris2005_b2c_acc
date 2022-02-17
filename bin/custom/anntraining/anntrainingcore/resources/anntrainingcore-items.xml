@@ -25,6 +25,15 @@
             <value code="WHITE"/>
             <value code="YELLOW"/>
         </enumtype>
+
+        <enumtype code="DiscontinuedStatus" generate="true" autocreate="true" dynamic="true">
+            <value code="D0"/>
+            <value code="D1"/>
+            <value code="D2"/>
+            <value code="D3"/>
+            <value code="D4"/>
+        </enumtype>
+
     </enumtypes>
 
     <itemtypes>
@@ -84,6 +93,17 @@
                         <persistence type="property"/>
                     </attribute>
                 </attributes>
+            </itemtype>
+            
+            <itemtype code="Product" autocreate="false" generate="false">
+                <attributes>
+                    <attribute qualifier="discontinuedStatus" type="DiscontinuedStatus">
+                        <persistence type="property"/>
+                        <modifiers optional="false"/>
+                        <defaultvalue>em().getEnumerationValue("DiscontinuedStatus", "D0")</defaultvalue>
+                    </attribute>
+                </attributes>
+
             </itemtype>
         </typegroup>
 

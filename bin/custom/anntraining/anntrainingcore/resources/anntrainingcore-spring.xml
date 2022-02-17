@@ -17,6 +17,7 @@
 	<import resource="classpath:/anntrainingcore/integration/hot-folder-store-electronics-spring.xml"/>
 	<import resource="classpath:/anntrainingcore/integration/hot-folder-store-apparel-spring.xml"/>
 	<import resource="classpath:/anntrainingcore/integration/hot-folder-common-spring.xml"/>
+	<import resource="classpath:/anntrainingcore/integration/hot-folder-discontinued-status.xml"/>
 
 	<!-- SystemSetup for the AnntrainingCore -->
 	<bean id="acceleratorCoreSystemSetup" class="de.hybris.anntraining.core.setup.CoreSystemSetup"
@@ -160,6 +161,16 @@
 		<property name="i18nService" ref="i18nService"/>
 		<property name="commonI18NService" ref="commonI18NService"/>
 	</bean>
+
+	<bean id="discontinuedStatusDisplayNameProvider"
+		  class="de.hybris.anntraining.core.search.solrfacetsearch.provider.impl.DiscontinuedStatusDisplayNameProvider"
+	>
+		<property name="enumerationService" ref="enumerationService"/>
+		<property name="i18nService" ref="i18nService"/>
+		<property name="commonI18NService" ref="commonI18NService"/>
+	</bean>
+
+	<bean id="discontinuedStatusValueResolver" class="de.hybris.anntraining.core.search.solrfacetsearch.provider.impl.DiscontinuedStatusValueResolver" parent="abstractValueResolver"/>
 
 	<bean id="apparelPointOfServiceFacetDisplayNameProvider"
 	      class="de.hybris.anntraining.core.search.solrfacetsearch.provider.impl.PointOfServiceFacetDisplayNameProvider"
@@ -538,4 +549,6 @@
 		<property name="itemCleanupHooks" ref="csTicketRetentionHooks"/>
 		<property name="ticketBusinessService" ref="ticketBusinessService"/>
 	</bean>
+
+	<bean id="discontinuedStatusCellDecorator" class="de.hybris.anntraining.core.decorators.DiscontinuedStatusCellDecorator"/>
 </beans>
